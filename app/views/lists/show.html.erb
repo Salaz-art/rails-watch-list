@@ -1,0 +1,27 @@
+<div class="container w-50 p-4 mx-auto border bg-white rounded mt-5 shadow-sm">
+  <h2 class="text-primary text-center mb-4"><%= @list.name %></h2>
+
+  <div class="mt-4">
+    <ul class="list-unstyled">
+      <% @bookmarks.each do |bookmark| %>
+        <li class="mb-4 border-bottom pb-3">
+          <div class="text-center mb-3">
+            <img src="<%= bookmark.movie.poster_url %>" class="img-fluid rounded" alt="Movie Poster" style="height: 250px; object-fit: cover;">
+            <h3 class="text-secondary mt-2 mb-1"><strong><%= bookmark.movie.title %></strong></h3>
+          </div>
+
+          <h5 class="text-dark"><strong>Bookmark Details:</strong></h5>
+          <div class="d-flex align-items-center justify-content-between mt-2">
+            <p class="mb-0"><strong></strong> <%= bookmark.comment %></p>
+            <%= link_to "", bookmark_path(bookmark), class: "fa-solid fa-trash text-danger ms-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this bookmark?" }, title: "Delete bookmark" %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="d-flex justify-content-center gap-3 mt-4">
+      <%= link_to "Add a Bookmark", new_list_bookmark_path(@list), class: "btn btn-primary" %>
+      <%= link_to "Back to Lists", lists_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>

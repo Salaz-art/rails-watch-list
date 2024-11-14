@@ -1,0 +1,18 @@
+<div class="container w-50 p-4 mx-auto border bg-white rounded mt-5">
+  <h2 class="text-primary text-center mb-3">Add a bookmark</h2>
+
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <div class="mb-3">
+      <%= f.input :movie_id, collection: @movies %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.input :comment %>
+    </div>
+
+    <div class="text-center">
+      <%= f.button :submit, class: "btn btn-primary" %>
+      <%= link_to "Back to list", list_path(@list), class: "btn btn-secondary text-white text-decoration-none" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,14 @@
+<div class="container w-50 p-4 mx-auto border bg-white rounded mt-5">
+  <h2 class="text-primary text-center mb-3"> Create new list</h2>
+  <%= simple_form_for @list do |f| %>
+    <div class="mb-3">
+      <%= f.input :name %>
+    </div>
+
+    <div class="text-center">
+        <%= f.button :submit, class: "btn btn-primary" %>
+        <%= link_to "Back to lists", lists_path, class: "btn btn-secondary text-white text-decoration-none" %>
+      </div>
+    </div>
+  <% end %>
+</div>
